@@ -1,4 +1,5 @@
 import { Controller, Get, Post, Body, Param } from '@nestjs/common';
+import { CreateMessageDto } from './dtos/create-message.dto';
 
 
 // Class decorator
@@ -12,7 +13,7 @@ export class MessagesController {
 
     // Body and Param are what are known as argument decorators 
     @Post()
-    createMessage(@Body() body: any){
+    createMessage(@Body() body: CreateMessageDto){
         // extract body of incoming request
         console.log(body);
     }
