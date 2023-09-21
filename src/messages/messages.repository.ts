@@ -16,7 +16,7 @@ export class MessagesRepository {
     }
 
     async create(content: string) {
-        const contents = await readFile('contents.json', 'utf8');
+        const contents = await readFile('messages.json', 'utf8');
         const messages = JSON.parse(contents);
         // randomly generate an id
         const id = Math.floor(Math.random()*999)

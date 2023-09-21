@@ -5,9 +5,16 @@ import { MessagesService } from './messages.service';
 // Class decorator
 @Controller('messages')
 export class MessagesController {
+    messagesService: MessagesService
+
+    constructor() {
+        // Don't do this on real app, use DI
+        this.messagesService = new MessagesService();
+    }
     // Method decorator 
     @Get()
     listMessages(){
+       return this.messagesService.findAll()
 
     }
 
@@ -15,12 +22,13 @@ export class MessagesController {
     @Post()
     createMessage(@Body() body: CreateMessageDto){
         // extract body of incoming request
-        console.log(body);
+        return this.messagesService.create(body.content)
     }
 
     @Get('/:id')
-    getMessage(@Param('id') id: String){
+    getMessage(@Param('id') id: string){
         // extract the value of the wildcard
-        console.log(id);
+       return this.messagesService.findOne(id)
+        
     }
 }
