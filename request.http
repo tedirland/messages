@@ -7,9 +7,9 @@ POST http://localhost:3000/messages
 content-type: application/json
 
 {
-    "content": "She sells seashells down by the seashore"
+    "content": "Message after adding DI"
     }
 
 ### Get message by id
-GET http://localhost:3000/messages/dfh
+GET http://localhost:3000/messages/33
 
